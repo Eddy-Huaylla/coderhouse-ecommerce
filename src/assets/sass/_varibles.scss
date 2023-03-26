@@ -1,0 +1,30 @@
+$primare-color : #15505f;
+$primare-hover : #093844;
+
+
+$font-size--base        : 16px;
+$font-size--tiny        : 0.625rem;
+$font-size--extra-small : 0.75rem;
+$font-size--small       : 0.875rem;
+$font-size--normal      : 1rem;
+$font-size--medium      : 1.25rem;
+$font-size--large       : 1.5rem;
+$font-size--extra-large : 2.25rem;
+
+
+$content-size : 1200px;
+
+$desktop-breakpoint : 1080px;
+$medium-breakpoint  : 782px;
+$mobile-breakpoint  : 480px;
+
+$is-mobile      : "(max-width: #{$mobile-breakpoint})";
+$is-not-mobile  : "(min-width: #{$mobile-breakpoint + 1})";
+
+$is-medium      : "(max-width: #{$medium-breakpoint})";
+$is-not-medium  : "(min-width: #{$medium-breakpoint - 1})";
+
+$is-tablet      : "(min-width: #{$mobile-breakpoint + 1}) and (max-width: #{$desktop-breakpoint - 1})";
+
+$is-desktop     : "(min-width: #{$desktop-breakpoint})";
+$is-not-desktop : "(max-width: #{$desktop-breakpoint - 1})";

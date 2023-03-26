@@ -1,0 +1,25 @@
+@import '../../assets/sass/varibles';
+
+.cart-widget {
+	display: flex;
+	position: relative;
+
+	svg {
+		width: 1rem;
+
+		path {
+			fill: #ffffff;
+		}
+	}
+
+	.cart-widget__quantity {
+		font-size: 0.8rem;
+		background-color: #ffffff;
+		color: $primare-color;
+		padding: 0 0.1rem;
+		border-radius: 2rem;
+		position: absolute;
+		top: -0.5rem;
+		right: -0.5rem;
+	}
+}

@@ -1,10 +1,16 @@
-import './App.css';
+import { ItemListContainer } from './ItemListContainer/ItemListContainer';
+import { NavBar } from './NavBar/NavBar';
 
 function App() {
   return (
-    <header>
-		<h1>Init Proyect</h1>
-	</header>
+	<>
+		<header>
+			<NavBar />
+		</header>
+		<section>
+			<ItemListContainer greeting="Hola, Lista de contenidos..." />
+		</section>
+	</>
   );
 }
 

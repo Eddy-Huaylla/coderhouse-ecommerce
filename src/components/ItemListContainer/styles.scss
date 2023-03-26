@@ -1,0 +1,15 @@
+@import '../../assets/sass/varibles';
+
+.item-list-container {
+	font-size: $font-size--large;
+	min-height: 8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: $primare-color;
+	width: 100%;
+	max-width: $content-size;
+	margin-top: 1rem;
+	border: 1px solid $primare-hover;
+	border-radius: 0.5rem;
+}

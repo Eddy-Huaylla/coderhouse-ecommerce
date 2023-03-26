@@ -1,0 +1,22 @@
+@import './../../assets/sass/varibles';
+
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	max-width: $content-size;
+	padding: 0 0.5rem;
+	width: 100%;
+}
+
+
+@media #{ $is-desktop } {
+	.navbar {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		max-width: $content-size;
+		padding: 0 0.5rem;
+		width: 100%;
+	}
+}

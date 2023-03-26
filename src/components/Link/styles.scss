@@ -1,0 +1,52 @@
+@import '../../assets/sass/varibles';
+
+.link {
+	list-style: none;
+
+	&__a {
+		color: #ffffff;
+		text-decoration: none;
+		padding: 0.5rem 1rem;
+		border-bottom: 2px solid transparent;
+		display: block;
+
+		&:hover {
+			border-bottom: 2px solid $primare-hover;
+
+			& + .link__child {
+				height: auto;
+				transition: 0.5s all;
+				border: 0.5px solid #ffffff;
+			}
+		}
+	}
+
+	&__child {
+		background-color: $primare-color;
+		position: absolute;
+		height: 0;
+		transition: 0.5s all;
+		overflow: hidden;
+
+		&:hover {
+			height: auto;
+			transition: 0.5s all;
+			border: 0.5px solid #ffffff;
+		}
+
+		.link {
+			&-list {
+				flex-direction: column;
+				gap: 0;
+			}
+
+			&__a {
+				border: 0;
+
+				&:hover {
+					background-color: $primare-hover;
+				}
+			}
+		}
+	}
+}
