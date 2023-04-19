@@ -5,13 +5,18 @@ import './styles.scss';
 
 const LinkList = ( { links = [] } ) => {
 	return (
-		<ul className='link-list'>
-			{
-				links.map( ( link, index ) => {
-					return <Link slug={ link.slug } label={ link.label } child={ link.child } key={index} />
-				})
-			}
-		</ul>
+		<>
+			<div className="collapse navbar-collapse justify-content-center" id="navbarColor03">
+				<ul className="navbar-nav me-auto link-list">
+					{
+						links.map( ( link, index ) => {
+							return <Link slug={ link.slug } label={ link.label } child={ link.child } key={index} />
+						})
+					}
+				</ul>
+			</div>
+		</>
+
 	);
 }
 
