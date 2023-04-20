@@ -1,0 +1,32 @@
+@import '../../assets/sass/varibles';
+
+.item {
+	max-width: 18rem;
+	width: 100%;
+	flex-grow: 1;
+
+	.card {
+		height: 100%;
+
+		&-body {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		&-title {
+			font-size: $font-size--normal;
+		}
+
+		&-list-text {
+			.nav-link {
+				margin-top: 0.5rem;
+			}
+		}
+
+		&-text {
+			font-size: $font-size--small;
+			margin-bottom: 0;
+		}
+	}
+}

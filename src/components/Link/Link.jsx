@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { Link as LinkNav } from 'react-router-dom';
 import { isMobile } from 'react-device-detect';
 
 import { LinkList } from '../LinkList/LinkList';
@@ -15,9 +16,7 @@ const Link = ( { slug, label, child = [] } ) => {
 
 	return (
 		<li className="nav-item link">
-			<a className="nav-link active link__a" href={ slug }>
-				{ label }
-			</a>
+			<LinkNav className='nav-link active link__a' to={ slug }>{ label }</LinkNav>
 
 			{ child?.length > 0 && (
 				<>

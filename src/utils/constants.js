@@ -1,26 +1,26 @@
 export const MENU = [
 	{
-		'slug': 'celulares',
+		'slug': 'category/1',
 		'label': 'Celulares',
 	},
 	{
-		'slug': 'computadoras',
+		'slug': 'category/2',
 		'label': 'Computadoras',
 	},
 	{
-		'slug': 'tablets',
+		'slug': 'category/3',
 		'label': 'Tablets',
 	},
 	{
-		'slug': 'accesorios',
+		'slug': 'category/4',
 		'label': 'Accesorios',
 		'child': [
 			{
-				'slug': 'teclados',
+				'slug': 'category/4/1',
 				'label': 'Teclados',
 			},
 			{
-				'slug': 'parlantes',
+				'slug': 'category/4/2',
 				'label': 'Parlantes',
 			}
 		]
@@ -36,7 +36,7 @@ export const PRODUCTS = [
 		"modelo": "Redmi note 10 pro",
 		"precio": 1758.00,
 		"stock": 30,
-		"img": "imgs/celulares/1.webp"
+		"img": "/imgs/celulares/1.webp"
 	},
 	{
 		"id": 2,
@@ -46,7 +46,7 @@ export const PRODUCTS = [
 		"modelo": "Redmi Note 12 Pro",
 		"precio": 1077.00,
 		"stock": 20,
-		"img": "imgs/celulares/2.webp"
+		"img": "/imgs/celulares/2.webp"
 	},
 	{
 		"id": 3,
@@ -56,7 +56,7 @@ export const PRODUCTS = [
 		"modelo": "Redmi note 10 pro",
 		"precio": 1030.00,
 		"stock": 15,
-		"img": "imgs/celulares/3.jpeg"
+		"img": "/imgs/celulares/3.jpeg"
 	},
 	{
 		"id": 4,
@@ -66,7 +66,7 @@ export const PRODUCTS = [
 		"modelo": "12",
 		"precio": 2350.00,
 		"stock": 30,
-		"img": "imgs/celulares/4.webp"
+		"img": "/imgs/celulares/4.webp"
 	},
 	{
 		"id": 5,
@@ -76,7 +76,7 @@ export const PRODUCTS = [
 		"modelo": "SE 2020 ",
 		"precio": 930.00,
 		"stock": 7,
-		"img": "imgs/celulares/5.webp"
+		"img": "/imgs/celulares/5.webp"
 	},
 	{
 		"id": 6,
@@ -86,7 +86,7 @@ export const PRODUCTS = [
 		"modelo": "L35",
 		"precio": 536.22,
 		"stock": 20,
-		"img": "imgs/computadoras/1.webp"
+		"img": "/imgs/computadoras/1.webp"
 	},
 	{
 		"id": 7,
@@ -96,7 +96,7 @@ export const PRODUCTS = [
 		"modelo": "L37",
 		"precio": 596.00,
 		"stock": 10,
-		"img": "imgs/computadoras/2.jpeg"
+		"img": "/imgs/computadoras/2.jpeg"
 	},
 	{
 		"id": 8,
@@ -106,7 +106,7 @@ export const PRODUCTS = [
 		"modelo": "Lh58",
 		"precio": 1555.00,
 		"stock": 30,
-		"img": "imgs/computadoras/3.jpeg"
+		"img": "/imgs/computadoras/3.jpeg"
 	},
 	{
 		"id": 9,
@@ -116,7 +116,7 @@ export const PRODUCTS = [
 		"modelo": "M54",
 		"precio": 851.00,
 		"stock": 30,
-		"img": "imgs/computadoras/4.jpeg"
+		"img": "/imgs/computadoras/4.jpeg"
 	},
 	{
 		"id": 10,
@@ -126,7 +126,7 @@ export const PRODUCTS = [
 		"modelo": "TR6949",
 		"precio": 303.00,
 		"stock": 25,
-		"img": "imgs/tablets/1.webp"
+		"img": "/imgs/tablets/1.webp"
 	},
 	{
 		"id": 11,
@@ -136,7 +136,7 @@ export const PRODUCTS = [
 		"modelo": "S6 Lite",
 		"precio": 2351.90,
 		"stock": 30,
-		"img": "imgs/tablets/2.webp"
+		"img": "/imgs/tablets/2.webp"
 	},
 	{
 		"id": 12,
@@ -146,7 +146,7 @@ export const PRODUCTS = [
 		"modelo": "PAD 2022",
 		"precio": 959.50,
 		"stock": 20,
-		"img": "imgs/tablets/3.webp"
+		"img": "/imgs/tablets/3.webp"
 	},
 	{
 		"id": 13,
@@ -156,7 +156,7 @@ export const PRODUCTS = [
 		"modelo": "Tab S7 FE",
 		"precio": 2895.60,
 		"stock": 20,
-		"img": "imgs/tablets/4.webp"
+		"img": "/imgs/tablets/4.webp"
 	},
 	{
 		"id": 14,
@@ -167,7 +167,7 @@ export const PRODUCTS = [
 		"modelo": "Bora Rainbow",
 		"precio": 117.60,
 		"stock": 20,
-		"img": "imgs/accesorios/teclados/1.webp"
+		"img": "/imgs/accesorios/teclados/1.webp"
 	},
 	{
 		"id": 15,
@@ -178,7 +178,7 @@ export const PRODUCTS = [
 		"modelo": "K380",
 		"precio": 137.20,
 		"stock": 20,
-		"img": "imgs/accesorios/teclados/2.webp"
+		"img": "/imgs/accesorios/teclados/2.webp"
 	},
 	{
 		"id": 16,
@@ -189,7 +189,7 @@ export const PRODUCTS = [
 		"modelo": "150w",
 		"precio": 881.20,
 		"stock": 20,
-		"img": "imgs/accesorios/parlantes/1.webp"
+		"img": "/imgs/accesorios/parlantes/1.webp"
 	},
 	{
 		"id": 17,
@@ -200,6 +200,6 @@ export const PRODUCTS = [
 		"modelo": "MS 16",
 		"precio": 551.20,
 		"stock": 20,
-		"img": "imgs/accesorios/parlantes/2.webp"
+		"img": "/imgs/accesorios/parlantes/2.webp"
 	}
 ]

@@ -27,6 +27,7 @@
 		height: 0;
 		transition: 0.5s all;
 		overflow: hidden;
+		z-index: 99;
 
 		&.active {
 			height: auto;
@@ -85,6 +86,12 @@
 						background-color: $primare-hover;
 					}
 				}
+			}
+
+			&:hover {
+				height: auto;
+				transition: 0.5s all;
+				border: 0.5px solid #ffffff;
 			}
 		}
 
