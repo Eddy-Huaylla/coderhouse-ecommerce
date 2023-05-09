@@ -1,30 +1,33 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-import { all } from '../../services/products';
+import { getProducts } from '../../services/firebase';
 
 import { ItemList } from '../ItemList/ItemList';
 
 import './styles.scss';
-import { useParams } from 'react-router-dom';
+
 
 const ItemListContainer = () => {
 	const { category, subcategory } = useParams();
 	const [ products, setProducts ] = useState( [] );
 
 	useEffect( () => {
-		all( true )
+		getProducts()
 		.then( response => {
-			var listProduct = response.filter( prod => prod.stock > 0 )
+			const listProduct = response.filter( prod => prod.stock > 0 )
 
-			if( category ) {
-				listProduct = listProduct.filter( prod => prod.idCategoria === parseInt( category ) );
+			let filteredProducts = [ ...listProduct ];
+
+			if (category) {
+				filteredProducts = filteredProducts.filter( prod => prod.idCategoria === parseInt(category) );
 			}
 
-			if( subcategory ) {
-				listProduct = listProduct.filter( prod => prod?.idSubCategoria === parseInt( subcategory ) );
+			if (subcategory) {
+				filteredProducts = filteredProducts.filter( prod => prod?.idSubCategoria === parseInt(subcategory) );
 			}
 
-			setProducts( listProduct );
+			setProducts(filteredProducts);
 		})
 		.catch( e => {
 			console.error( e );
