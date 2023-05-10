@@ -36,7 +36,7 @@ const ItemListContainer = () => {
 
 	return (
 		<div className="row item-list-container">
-			{<ItemList products={products} />}
+			{<ItemList products={products} template={ "Item" }/>}
 		</div>
 	);
 }
