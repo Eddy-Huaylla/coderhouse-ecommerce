@@ -1,9 +1,12 @@
 import { BrowserRouter } from 'react-router-dom';
 
-import { NavBar } from './components/NavBar/NavBar';
+import { ToastContainer } from 'react-toastify';
+
+import { CarritoProvider } from './context/CartContext';
+
 import { Routes } from './Routes';
 
-import { ToastContainer } from 'react-toastify';
+import { NavBar } from './components/NavBar/NavBar';
 
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -13,15 +16,17 @@ function App() {
 	// createProducts();
 
 	return (
-		<BrowserRouter>
-			<ToastContainer />
-			<header>
-				<NavBar />
-			</header>
-			<section>
-				<Routes />
-			</section>
-		</BrowserRouter>
+		<CarritoProvider>
+			<BrowserRouter>
+				<ToastContainer />
+				<header>
+					<NavBar />
+				</header>
+				<section>
+					<Routes />
+				</section>
+			</BrowserRouter>
+		</CarritoProvider>
 	);
 }
 

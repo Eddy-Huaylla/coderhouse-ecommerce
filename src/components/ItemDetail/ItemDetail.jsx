@@ -1,10 +1,12 @@
+import { useCarritoContext } from "../../context/CartContext";
+
 import { ItemCount } from "../ItemCount/ItemCount";
 
 const ItemDetail = ( { item } ) => {
+	const { addItem } = useCarritoContext()
 
     const onAdd = ( contador ) => {
-        console.log(contador)
-        console.log(item)
+		addItem( item, contador );
     }
 
     return (

@@ -10,7 +10,6 @@ import { Logo } from '../Logo/Logo';
 import './styles.scss';
 
 const NavBar = () => {
-
 	const menu_links = MENU;
 
 	return (
@@ -23,7 +22,7 @@ const NavBar = () => {
 					? (
 						<>
 							<div className='navbar__actions-mobile'>
-								<CartWidget quantity={ 0 }/>
+								<CartWidget />
 								<button
 									className="navbar-toggler"
 									type="button"
