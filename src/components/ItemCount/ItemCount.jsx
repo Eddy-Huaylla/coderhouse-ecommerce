@@ -12,7 +12,7 @@ const ItemCount = ({ ValInicial, min, max, onAdd }) => {
 			{count}
 		<button className="btn btn-light" onClick={sum}>+</button>
 		<button className="btn btn-light" onClick={reset}>Reset</button>
-		<button className="btn btn-dark w-100" onClick={() => onAdd(count)}>Agregar al Carrito</button>
+		<button className="btn btn-dark w-100" onClick={ () => onAdd( count ) }>Agregar al Carrito</button>
 	</div>
   )
 }

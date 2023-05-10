@@ -2,7 +2,7 @@ import { ItemCount } from "../ItemCount/ItemCount";
 
 const ItemDetail = ( { item } ) => {
 
-    const onAdd = (contador) => {
+    const onAdd = ( contador ) => {
         console.log(contador)
         console.log(item)
     }
@@ -19,7 +19,7 @@ const ItemDetail = ( { item } ) => {
                     <p className="card-text">Marca: {item.marca}</p>
                     <p className="card-text">Precio: ${item.precio}</p>
                     <p className="card-text">Stock: {item.stock}</p>
-                    <ItemCount ValInicial={1} min={1} max={item.stock} onAdd={onAdd} />
+                    <ItemCount ValInicial={1} min={1} max={item.stock} onAdd={ onAdd } />
                 </div>
             </div>
         </div>

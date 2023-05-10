@@ -6,3 +6,4 @@ Proyecto de ecommerce realizada en react.
 
 - "sass": "^1.60.0"
 - "react-device-detect": "^2.2.3"
+- "react-toastify": "^9.1.2"
