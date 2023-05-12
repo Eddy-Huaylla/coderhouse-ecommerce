@@ -12,13 +12,17 @@ export const CarritoProvider = ( props ) => {
         return carrito.some( prod => prod.id === idProduct );
     }
 
+	const updateQuantityItem = ( idProduct, quantity ) => {
+		const indice = carrito.findIndex( prod => prod.id === idProduct );
+		const aux = [ ...carrito ];
+		aux[indice].quantity = quantity;
+
+		setCarrito( aux );
+	}
+
     const addItem = ( product, quantity ) => {
         if ( isInCart( product.id ) ) {
-            const indice = carrito.findIndex( prod => prod.id === product.id );
-            const aux = [ ...carrito ];
-            aux[indice].quantity = quantity;
-
-            setCarrito( aux );
+            updateQuantityItem( product.id, quantity )
         } else {
             const newItem = {
                 ...product,
@@ -46,7 +50,7 @@ export const CarritoProvider = ( props ) => {
     }
 
     return (
-        <CarritoContext.Provider value={ { carrito, addItem, removeItem, emptyCart, totalPrice, getItemQuantity } }>
+        <CarritoContext.Provider value={ { carrito, updateQuantityItem, addItem, removeItem, emptyCart, totalPrice, getItemQuantity } }>
             { props.children }
         </CarritoContext.Provider>
     )
