@@ -1,8 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
+import { useCarritoContext } from '../../context/CartContext';
+import { createOrdenCompra, getProduct, updateProduct } from '../../services/firebase';
+import { useNavigate } from 'react-router-dom';
+
+import './styles.scss';
 
 const FormCheckout = () => {
 	const datForm = useRef();
+	const [ loading, setLoading ] = useState( false );
+	const navigate = useNavigate();
+	const { carrito, totalPrice, emptyCart } = useCarritoContext();
+	const { updateQuantityItem } = useCarritoContext();
+
+	const navigateToHome = ( carrito ) => {
+		if( carrito.length <= 0 ) {
+			navigate( "/" );
+		}
+	};
 
 	const mostrarAlerta = ( texto ) => {
 		toast( texto , {
@@ -17,8 +32,52 @@ const FormCheckout = () => {
 		} );
 	}
 
+	const updateProductDB = () => {
+		const aux = [ ...carrito ]
+
+        aux.forEach( prodCarrito => {
+            getProduct( prodCarrito.id ).then( prodBBD => {
+                if ( prodBBD.stock >= prodCarrito.quantity ) {
+                    prodBBD.stock -= prodCarrito.quantity;
+                    updateProduct( prodBBD.id, prodBBD );
+                } else {
+                    mostrarAlerta("El stock no es mayor o igual a la cantidad que se quiere comprar");
+					updateQuantityItem( prodCarrito.id, prodBBD.stock );
+                }
+            })
+        });
+	}
+
+	const createOrder = (cliente, e ) => {
+		const aux = [ ...carrito ]
+		const aux2 = aux.map(prod => ({ id: prod.id, quantity: prod.quantity, precio: prod.precio }));
+
+        createOrdenCompra(
+			cliente,
+			totalPrice(),
+			aux2,
+			new Date().toLocaleString('es-PE', {
+				timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+			})
+		)
+		.then(ordenCompra => {
+			mostrarAlerta( `🛒 Muchas gracias por comprar con nosotros, su ID de compra es ${ordenCompra.id} por un total de ${totalPrice()}, en breve nos contactaremos para el envio` );
+			emptyCart();
+			e.target.reset();
+			navigateToHome();
+		})
+		.catch(error => {
+			mostrarAlerta( "Pasó algun error, intente nuevamente." );
+			console.error(error)
+		})
+		.finally( () => {
+			setLoading( false );
+		});
+	}
+
     const consultarForm = ( e ) => {
         e.preventDefault();
+		setLoading( true );
 
         const datosFormulario = new FormData( datForm.current );
         const cliente = Object.fromEntries( datosFormulario );
@@ -31,7 +90,8 @@ const FormCheckout = () => {
 				return;
 			}
 
-			console.log('ok');
+			updateProductDB();
+			createOrder( cliente, e );
 			e.target.reset();
 		} else {
 			mostrarAlerta( '⚠️ Completar todos los datos' );
@@ -39,9 +99,14 @@ const FormCheckout = () => {
 		}
     }
 
+	useEffect( () => {
+		navigateToHome( carrito );
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [ carrito ] );
+
 	return (
 		<div className="container divForm" >
-            <form onSubmit={ consultarForm } ref={ datForm }>
+            <form onSubmit={ consultarForm } ref={ datForm } disabled={ loading ? true : false }>
                 <div className="mb-3">
                     <label htmlFor="nombre" className="form-label">Nombre y Apellido</label>
                     <input type="text" className="form-control" name="nombre" required />
