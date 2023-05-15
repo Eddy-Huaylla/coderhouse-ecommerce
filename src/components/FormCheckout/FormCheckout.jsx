@@ -13,7 +13,7 @@ const FormCheckout = () => {
 	const { carrito, totalPrice, emptyCart } = useCarritoContext();
 	const { updateQuantityItem } = useCarritoContext();
 
-	const navigateToHome = ( carrito ) => {
+	const navigateToHome = ( carrito = [] ) => {
 		if( carrito.length <= 0 ) {
 			navigate( "/" );
 		}
