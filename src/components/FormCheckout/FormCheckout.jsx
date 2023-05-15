@@ -87,6 +87,7 @@ const FormCheckout = () => {
 
 			if( cliente.email !== cliente.emailRepetido ) {
 				mostrarAlerta( '📧 El email tiene que ser igual.' );
+				setLoading( false );
 				return;
 			}
 
@@ -95,6 +96,7 @@ const FormCheckout = () => {
 			e.target.reset();
 		} else {
 			mostrarAlerta( '⚠️ Completar todos los datos' );
+			setLoading( false );
 			return;
 		}
     }
